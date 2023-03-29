@@ -2,7 +2,8 @@
 import rospy
 
 if __name__ == '__main__':
-    rospy.init_node("test_nide")
+    rospy.init_node("test_node")
+    rospy.loginfo("GGs means goodbuy nabs")
     rospy.logwarn("This is a warning")
     rospy.logerr("Error")
 
