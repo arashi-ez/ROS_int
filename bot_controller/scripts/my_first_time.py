@@ -8,4 +8,4 @@ if __name__ == '__main__':
 
     rospy.sleep(1.0)
 
-    rospy.loginfo("GG")
+    rospy.loginfo("GGs")
