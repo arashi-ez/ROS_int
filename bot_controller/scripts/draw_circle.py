@@ -3,7 +3,15 @@ import rospy
 from geometry_msgs.msg import Twist
 
 if __name__ == '__main__':
-    rospy.init_node("I am going to Draw a Circle")
-    rospy.loginfo("Node has been started.")
+    rospy.init_node("I_am_going_to_Draw_a_Circle")
+    rospy.loginfo("Node_has_been_started.")
 
-    pub = rospy.Publisher("/turtle1/cmd_vel")
+    pub = rospy.Publisher("/turtle1/cmd_vel", Twist, queue_size=10)
+    rate = rospy.Rate(2) 
+
+    while not rospy.is_shutdown():
+        msg = Twist()
+        msg.linear.x = 2.0
+        msg.angular.z = 1.0
+        pub.publish(msg)
+        rate.sleep() 
