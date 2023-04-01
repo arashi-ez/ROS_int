@@ -10,3 +10,6 @@ if __name__ == '__main__':
     while not rospy.is_shutdown():
         rospy.loginfo("Ez Pz")
         rate.sleep()
+    if rospy.is_shutdown():{
+        rospy.logwarn("omg!!!")    
+    }
