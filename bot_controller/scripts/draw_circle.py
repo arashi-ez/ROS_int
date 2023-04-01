@@ -4,7 +4,7 @@ from geometry_msgs.msg import Twist
 
 if __name__ == '__main__':
     rospy.init_node("I_am_going_to_Draw_a_Circle")
-    rospy.loginfo("Node_has_been_started.")
+    rospy.loginfo("Node has been started.")
 
     pub = rospy.Publisher("/turtle1/cmd_vel", Twist, queue_size=10)
     rate = rospy.Rate(2) 
