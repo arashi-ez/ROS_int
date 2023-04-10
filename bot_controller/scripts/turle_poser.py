@@ -21,16 +21,18 @@ def pose_callback(pose : Pose):
         cmd.angular.z = 1.2
     else:
         cmd.linear.x = 5.0
-        cmd.angular.z = 0.0
+        cmd.angular.z = .0
     pub.publish(cmd)
 
     global previous_x
     if pose.x >= 5.5 and previous_x < 5.5:
         rospy.loginfo("Set color to red")
         call_set_pen_sevice(255, 0, 0, 3, 0)
+
     elif pose.x < 5.5 and previous_x >=  5.5:
         rospy.loginfo("Set color to green")
         call_set_pen_sevice(0, 255, 0, 3, 0)
+
     previous_x = pose.x     
 
 if __name__=='__main__':
