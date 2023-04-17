@@ -6,7 +6,7 @@ from turtlesim.srv import SetPen
 
 previous_x = 0
 
-def call_set_pen_sevice(r, g, b, width, off):
+def call_set_pen_service(r, g, b, width, off):
     try:
         set_pen = rospy.ServiceProxy("/turtle1/set_pen", SetPen)
         response = set_pen(r, g, b, width, off)
@@ -27,13 +27,13 @@ def pose_callback(pose : Pose):
     global previous_x
     if pose.x >= 5.5 and previous_x < 5.5:
         rospy.loginfo("Set color to red")
-        call_set_pen_sevice(255, 0, 0, 3, 0)
-
+        call_set_pen_service(255, 0, 0, 3, 0)
     elif pose.x < 5.5 and previous_x >=  5.5:
         rospy.loginfo("Set color to green")
-        call_set_pen_sevice(0, 255, 0, 3, 0)
+        call_set_pen_service(0, 255, 0, 3, 0)
 
     previous_x = pose.x     
+
 
 if __name__=='__main__':
     rospy.init_node("turtle_poser")
