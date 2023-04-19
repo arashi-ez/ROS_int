@@ -8,7 +8,7 @@ previous_x = 0
 
 def call_set_pen_service(r, g, b, width, off):
     try:
-        set_pen = rospy.ServiceProxy("/turtle1/set_pen", SetPen)
+        set_pen = rospy.ServiceProxy("/turtle3/set_pen", SetPen)
         response = set_pen(r, g, b, width, off)
         # rospy.loginfo(response)
     except rospy.ServiceException as e:
@@ -37,9 +37,9 @@ def pose_callback(pose : Pose):
 
 if __name__=='__main__':
     rospy.init_node("turtle_poser")
-    rospy.wait_for_service("/turtle1/set_pen")
-    pub = rospy.Publisher("/turtle1/cmd_vel", Twist, queue_size=10)
-    sub = rospy.Subscriber("/turtle1/pose", Pose, callback=pose_callback) 
+    rospy.wait_for_service("/turtle3/set_pen")
+    pub = rospy.Publisher("/turtle3/cmd_vel", Twist, queue_size=10)
+    sub = rospy.Subscriber("/turtle3/pose", Pose, callback=pose_callback) 
     rospy.loginfo("NODE IS STARTING")
 
     rospy.spin()
